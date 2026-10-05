@@ -68,6 +68,11 @@ a:focus-visible, button:focus-visible, .social a:focus-visible,
 }
 
 .intro { margin-bottom: 44px; }
+.logo { width: 160px; height: auto; display: block; margin: 0 0 24px -4px; }
+:root[data-theme="dark"] .logo { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo { filter: invert(1); }
+}
 h1 {
   font-size: clamp(2.1rem, 5vw, 2.7rem); font-weight: 400;
   line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; margin: 0 0 16px;
@@ -103,7 +108,7 @@ h1 {
 .sec-body > p { margin: 0; color: var(--muted); font-size: var(--fs-body); text-wrap: pretty; }
 .sec-intro { margin: 0 0 18px !important; }
 
-a { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line-strong); transition: text-decoration-color 0.15s ease; }
+a { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--muted); transition: text-decoration-color 0.15s ease; }
 a:hover { text-decoration-color: var(--text); }
 
 .exp { display: flex; flex-direction: column; gap: 28px; }
@@ -171,6 +176,10 @@ body.doc h1 { font-size: clamp(2rem, 5vw, 2.6rem); }
 .doc .intro { margin-bottom: 36px; }
 .doc section { margin: 34px 0; }
 .doc h2 { font-family: var(--mono); font-size: var(--fs-label); font-weight: 400; text-transform: uppercase; letter-spacing: 0.13em; color: var(--muted); margin: 0 0 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
 
 @media (max-width: 640px) {
   main { padding: 72px 20px 40px; }
