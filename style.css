@@ -46,7 +46,7 @@ strong, b { font-weight: inherit; }
 main { max-width: 800px; margin: 0 auto; padding: 104px 32px 56px; counter-reset: sec; }
 
 a:focus-visible, button:focus-visible, .social a:focus-visible,
-.copy-btn:focus-visible, #theme-toggle:focus-visible, .work-link:focus-visible {
+.copy-btn:focus-visible, #theme-toggle:focus-visible {
   outline: 2px solid var(--text); outline-offset: 3px; border-radius: 2px;
 }
 
@@ -68,7 +68,7 @@ a:focus-visible, button:focus-visible, .social a:focus-visible,
 }
 
 .intro { margin-bottom: 44px; }
-.logo { width: 160px; height: auto; display: block; margin: 0 0 24px -4px; }
+.logo { width: 185px; height: auto; display: block; margin: 0 0 24px -4px; }
 :root[data-theme="dark"] .logo { filter: invert(1); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .logo { filter: invert(1); }
@@ -137,7 +137,7 @@ a:hover { text-decoration-color: var(--text); }
 
 .writing { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .writing li { border-top: 1px solid var(--line); }
-.writing li a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: var(--fs-body); line-height: 1.4; }
+.writing li a { display: block; padding: 12px 0; color: var(--muted); font-style: italic; text-decoration: none; font-size: var(--fs-body); line-height: 1.4; }
 .writing li a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 footer { max-width: 800px; margin: 0 auto; padding: 24px 32px 40px; }

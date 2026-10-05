@@ -79,7 +79,7 @@ docker run -p 8080:8080 ghcr.io/mathesh-me/scp-validator:latest</code></pre>
   </main>
 
   <footer>
-    <p>Mathesh M E &middot; India</p>
+    <p>Mathesh M E <span>/</span> <time id="year">2026</time></p>
   </footer>
 
   <script>
@@ -96,6 +96,7 @@ docker run -p 8080:8080 ghcr.io/mathesh-me/scp-validator:latest</code></pre>
         try { localStorage.setItem('theme', next); } catch (e) {}
       });
     })();
+    (function () { var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();
   </script>
   <script src="/copy.js"></script>
 </body>

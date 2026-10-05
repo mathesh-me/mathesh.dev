@@ -63,8 +63,9 @@
     <section class="lead">
       <p>
         I'm a security engineer working across AWS and Kubernetes. Mostly I review
-        cloud infrastructure for security gaps and write policy as code so those
-        checks run automatically. I also build tools.
+        cloud infrastructure for security gaps and write policies that catch them
+        automatically. I also build tools to take the manual work out
+        of infrastructure and security.
       </p>
     </section>
 
@@ -79,12 +80,12 @@
             </div>
             <span class="exp-org">Broadridge</span>
             <ul>
-              <li>One of the primary reviewers for org-wide security group requests, checking each team's network access against the architecture and least privilege, prioritized by risk.</li>
+              <li>Review org-wide security group requests as one of the primary reviewers, checking each team's network access against the architecture and least privilege, prioritized by risk.</li>
               <li>Contribute security configurations to shared Terraform modules, mainly for EKS.</li>
               <li>Build policy-as-code auto-remediation with Cloud Custodian, running organization-wide.</li>
               <li>Manage the infrastructure hosting Wiz Outpost, the scanning component of our Wiz CSPM: maintain its IaC across CRDs and Helm charts, and automate EKS patching across regions.</li>
               <li>Handle the org-wide review and remediation of stale IAM users, both unused access keys and inactive accounts.</li>
-              <li>Work directly with application teams on cloud security issues in their accounts, through to remediation.</li>
+              <li>Work with application teams to remediate cloud vulnerabilities and misconfigurations in their accounts.</li>
             </ul>
           </div>
           <div class="exp-item">
@@ -113,7 +114,7 @@
           </li>
           <li>
             <div class="work-head"><a class="work-name" href="/scp-validator/">SCP Validator</a><span class="tag">Python</span></div>
-            <p class="work-desc">Tests AWS CLI commands against service control policies and shows the full evaluation trace.</p>
+            <p class="work-desc">Tests AWS CLI commands against Service Control Policies and shows the full evaluation trace.</p>
           </li>
           <li>
             <div class="work-head"><a class="work-name" href="https://github.com/mathesh-me">More on GitHub</a></div>
@@ -127,7 +128,7 @@
       <h2>Skills</h2>
       <div class="sec-body">
         <div class="skills">
-            <div class="skill-row"><span class="skill-cat">Languages</span><span class="skill-list">Python, Bash</span></div>
+          <div class="skill-row"><span class="skill-cat">Languages</span><span class="skill-list">Python, Bash</span></div>
           <div class="skill-row"><span class="skill-cat">Security</span><span class="skill-list">Wiz, Cloud Custodian, threat modeling</span></div>
           <div class="skill-row"><span class="skill-cat">Kubernetes</span><span class="skill-list">EKS, RBAC, network policies, admission control, Helm</span></div>
           <div class="skill-row"><span class="skill-cat">IaC and CI/CD</span><span class="skill-list">Terraform, GitHub Actions, Argo CD</span></div>
@@ -164,7 +165,7 @@
   </main>
 
   <footer>
-    <p>Mathesh M E <span>/</span> India</p>
+    <p>Mathesh M E <span>/</span> <time id="year">2026</time></p>
   </footer>
 
   <script>
@@ -181,6 +182,7 @@
         try { localStorage.setItem('theme', next); } catch (e) {}
       });
     })();
+    (function () { var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();
   </script>
 </body>
 </html>
