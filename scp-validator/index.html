@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SCP Validator - Mathesh M E</title>
+  <meta name="description" content="SCP Validator: test AWS CLI commands against Service Control Policies and see the full allow/deny evaluation trace. Runs locally." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23111214'/><text x='50' y='71' font-size='62' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>M</text></svg>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SCP Validator" />
+  <meta property="og:description" content="Test AWS CLI commands against Service Control Policies and see the full allow/deny evaluation trace." />
+  <meta property="og:url" content="https://mathesh.dev/scp-validator/" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&family=Roboto+Mono:wght@400&display=swap" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+  <button id="theme-toggle" type="button" aria-label="Toggle dark and light mode" title="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <main>
+    <p class="back"><a href="/">Mathesh M E</a></p>
+
+    <header class="intro">
+      <h1>SCP Validator</h1>
+      <p class="role">AWS Service Control Policy testing &middot; Python</p>
+    </header>
+
+    <section>
+      <p>
+        SCP Validator tests AWS Service Control Policies before you apply them.
+        You enter an AWS CLI command, paste your SCPs, and it shows whether the
+        action is allowed or denied, with a full evaluation trace of which
+        statement fired and why. It runs locally in Docker, so nothing leaves
+        your machine.
+      </p>
+    </section>
+
+    <section>
+      <h2>What it does</h2>
+      <ul class="doc-list">
+        <li><strong>Tester</strong> runs a CLI command against SCPs across multiple tabs, simulating the OU evaluation chain, and shows the full allow/deny trace.</li>
+        <li>Evaluates secondary IAM actions too (for example the tagging a command triggers), and a deny on any of them denies the whole action.</li>
+        <li><strong>Validator</strong> checks SCP JSON for structural errors and risky patterns, like a broad deny that would lock out the account.</li>
+        <li><strong>Visualizer</strong> renders an SCP as a decision tree, or an org as a Root -&gt; OU -&gt; account graph.</li>
+        <li><strong>Coverage</strong> shows which AWS services have first-class support.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Run it</h2>
+      <pre><code># pull the prebuilt image
+docker pull ghcr.io/mathesh-me/scp-validator:latest
+docker run -p 8080:8080 ghcr.io/mathesh-me/scp-validator:latest</code></pre>
+      <p>Then open <code>http://localhost:8080</code>.</p>
+    </section>
+
+    <section>
+      <h2>Source</h2>
+      <p><a href="https://github.com/mathesh-me/scp-validator">github.com/mathesh-me/scp-validator</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Mathesh M E &middot; India</p>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      function current() {
+        var set = document.documentElement.getAttribute('data-theme');
+        if (set) return set;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      btn.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+  <script src="/copy.js"></script>
+</body>
+</html>

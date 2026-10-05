@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WharfEye - Mathesh M E</title>
+  <meta name="description" content="WharfEye: container metrics, security auditing, and performance recommendations across Docker, Podman, and containerd." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23111214'/><text x='50' y='71' font-size='62' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>M</text></svg>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WharfEye" />
+  <meta property="og:description" content="Container metrics, security auditing, and performance recommendations across Docker, Podman, and containerd." />
+  <meta property="og:url" content="https://mathesh.dev/wharfeye/" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&family=Roboto+Mono:wght@400&display=swap" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+  <button id="theme-toggle" type="button" aria-label="Toggle dark and light mode" title="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <main>
+    <p class="back"><a href="/">Mathesh M E</a></p>
+
+    <header class="intro">
+      <h1>WharfEye</h1>
+      <p class="role">Container inspection, security auditing, performance &middot; Go</p>
+    </header>
+
+    <section>
+      <p>
+        WharfEye inspects running containers, audits their security
+        configuration, and recommends performance fixes, across Docker, Podman,
+        and containerd. It runs as an interactive terminal dashboard or a
+        browser dashboard, and auto-detects whichever runtime is present.
+      </p>
+    </section>
+
+    <section>
+      <h2>What it does</h2>
+      <ul class="doc-list">
+        <li>Live CPU, memory, and network metrics per container.</li>
+        <li>Security misconfiguration checks based on the CIS Docker Benchmark and NIST SP 800-190.</li>
+        <li>Performance recommendations from observed container metrics.</li>
+        <li>Interactive TUI dashboard and a browser-based web dashboard.</li>
+        <li>JSON output, plus HTML and CSV report export.</li>
+        <li>Auto-detects Docker, Podman (rootful and rootless), and containerd.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Install</h2>
+      <pre><code>git clone https://github.com/mathesh-me/wharfeye.git
+cd wharfeye
+make build</code></pre>
+    </section>
+
+    <section>
+      <h2>Usage</h2>
+      <pre><code># interactive terminal dashboard
+wharfeye
+
+# browser dashboard at http://localhost:9090
+wharfeye web
+
+# container status and metrics
+wharfeye status
+
+# security scan (add a container name for detailed advice)
+wharfeye security
+
+# performance recommendations
+wharfeye recommend
+
+# full report
+wharfeye report --export html</code></pre>
+      <p>Every command supports <code>--format json</code> for scripted use, and <code>--runtime docker|podman|containerd</code> to pick a runtime.</p>
+    </section>
+
+    <section>
+      <h2>Source</h2>
+      <p><a href="https://github.com/mathesh-me/wharfeye">github.com/mathesh-me/wharfeye</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Mathesh M E &middot; India</p>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      function current() {
+        var set = document.documentElement.getAttribute('data-theme');
+        if (set) return set;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      btn.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+  <script src="/copy.js"></script>
+</body>
+</html>
